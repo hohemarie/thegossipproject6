@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_09_132626) do
+ActiveRecord::Schema.define(version: 2019_02_09_161451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -31,11 +41,36 @@ ActiveRecord::Schema.define(version: 2019_02_09_132626) do
     t.string "sub_comment_id"
   end
 
+  create_table "compte", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password"
+    t.string "password_confirm"
+    t.integer "date_of_birth"
+    t.string "specialty"
+  end
+
+  create_table "comptes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password"
+    t.string "password_confirm"
+    t.integer "date_of_birth"
+    t.string "specialty"
+    t.text "description"
+  end
+
   create_table "conversations", force: :cascade do |t|
     t.string "role"
     t.string "replique"
     t.integer "user_id"
     t.string "name"
+    t.string "pmyn"
+    t.string "pm_id"
   end
 
   create_table "formulaire_creation_compte", force: :cascade do |t|
@@ -61,6 +96,8 @@ ActiveRecord::Schema.define(version: 2019_02_09_132626) do
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "id_potin"
+    t.integer "user_id"
   end
 
   create_table "loginsmdp", force: :cascade do |t|
