@@ -1,15 +1,12 @@
 class InfosSurLeLivre < ActiveRecord::Migration[5.2]
   def change
-    create_table :books do |t|
-      t.string :title
-      t.string :full_name #author
-      t.string :first_name #author
-      t.string :last_name #author
-      t.string :collection #book #la collection du livre
-      t.string :edition #book #l'éditeur /maison d'édition
-      t.string :genre
-      t.integer :date_of_publication
-      t.integer :id_author
-    end
+      add_column :books, :full_name, :string #author
+      add_column :books, :first_name, :string #author
+      add_column :books, :last_name, :string #author
+      add_column :books, :collection, :string #book #la collection du livre
+      add_column :books, :edition, :string #book #l'éditeur /maison d'édition
+      add_column :books, :genre, :string
+      add_column :books, :date_of_publication, :string
+      add_column :books, :id_author, :string
   end
 end

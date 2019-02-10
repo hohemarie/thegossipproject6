@@ -1,16 +1,10 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  resources :index
-  # Contient les routes du programme
-
-  #Les pages statiques de mon programme
-
-  resources :index # renvoi vers le model index
+# Contient les routes du programme
+#Les pages statiques de mon programme
   resources :team # renvoi vers le model index
   resources :contact # renvoi vers le model index
 
   #Les pages dynamiques du dossier Ruby
-  resources :show
 #/!\ on ne montre pas le potin si lutilisateur nest pas connecte
   resources :comment #quand le commentaire est poste il doit etre associe a l'utilisateur concerne - dans notre programme lutilisateur actuel est appele : current_user
 

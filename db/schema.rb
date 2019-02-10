@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_09_161451) do
+ActiveRecord::Schema.define(version: 2019_02_10_145420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +18,27 @@ ActiveRecord::Schema.define(version: 2019_02_09_161451) do
   create_table "authors", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "full_name"
+    t.integer "id_author"
+    t.integer "date_of_birth"
+    t.integer "date_of_death"
+    t.string "genre"
+    t.integer "nb_publications"
   end
 
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
+    t.string "full_name"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "collection"
+    t.string "edition"
+    t.string "genre"
+    t.string "date_of_publication"
+    t.string "id_author"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -104,6 +120,15 @@ ActiveRecord::Schema.define(version: 2019_02_09_161451) do
     t.string "identifiant"
     t.string "motdepasse"
     t.string "email"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "text"
+    t.string "title"
+    t.string "sender"
+    t.string "date_denvoi"
   end
 
   create_table "private_messages", force: :cascade do |t|

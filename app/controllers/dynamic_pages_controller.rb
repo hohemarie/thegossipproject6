@@ -29,5 +29,9 @@ class DynamicPagesController < ApplicationController
     @user = User.find(@user_id) #grace a ce code, jafficherai les informations relatives a cet utilisateur dans une fiche plus facilement. IL me suffira daccoler un point et la colonne contenant la donnee de l'utilsateur que je souhaite affichee pour chaque ligne de la fiche utilisateur que je veux creer dans un view pour que la fiche utilisateur soit realisee.
 
   end
+
+  def index
+    post :create, params: { email: "email@email.com", password: "azerty" }
+  end
  
 end
