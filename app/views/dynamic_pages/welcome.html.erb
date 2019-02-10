@@ -1,11 +1,7 @@
 <%-# Page welcome de mon programme-%>
 <%-# Cette page affiche un welcome avec le nom qu'on entre en parametre dans l'urel-%>
-
-<h1 class="text-center">BIENVENUE <%= @first_name %>! Ici c'est notre super site de potins, il est chouette, non ?</h1>
-
-<form action="">
-<input type="hidden" name="authenticity_token" value = "<%form_authenticity_token %>">
- C'est quoi ton prénom?
-<input type = "text" name="first_name">
+<% @gossips.each do |infos| %>
+  <%= infos %>
+<% end %>
 
 <%= link_to "Se déconnecter", session_path(session[:user_id]), method: :delete %>

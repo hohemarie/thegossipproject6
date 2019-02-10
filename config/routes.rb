@@ -37,7 +37,10 @@ Rails.application.routes.draw do
 #je ne peux pas detruire le potin si je nesuis pas lauteur du potin
    
   resources :like#renvoi vers la methode et le model like
-  resources :welcome #on demande a lutilisateur un email et un mot de passe 
+  resources :welcome do#on demande a lutilisateur un email et un mot de passe 
+    get 'preview'
+  end
+  resolve('welcome') { [:welcome] }
 #on recupere le first_name dans la barre de lurl - le first_name est dans notre app ruby un parametre (param) -- le fichier controller peut mettre le contenu de ce parametre dans une variable reutilisable dans les views ou dans les controllers
 #changerle controller
 #dans le ocntroller de dynamic pages la foncion welcome doit recuperer le contenu du parametre first name car nous avons une methode get
@@ -68,10 +71,14 @@ Rails.application.routes.draw do
   
   #pour linstant sur la page daccueil de la sessions tout ce quon fait cest se connecter et envoyer une adresse email et un mot de passe
 #lutilisateur est connecte 
-  resources :index #l'utilisateur est connecte#on a son id et on lui propose un eventail de choix des actions qu'il veut effectuer avec sa session d'utilisateur le logout fait partie de ces choix le logout est effectue avec la methode link_to
+  resources :index do #l'utilisateur est connecte#on a son id et on lui propose un eventail de choix des actions qu'il veut effectuer avec sa session d'utilisateur le logout fait partie de ces choix le logout est effectue avec la methode link_to
+    get 'preview'
+
+  end
+  resolve('index') { [:index] }
 #index ca va etre leventail de choix quun utilisateur peut avoir en utilisant sa session. Cettepage sappelerait donc index ? je vais la renommer et lappeler sessions.
 #pourquoi car a linteiruer du contrlller il y a des ptits fonctions. celles ci sont tresliees a leur controlleur.
-
+  
   resources :create #/!\ L'utilisateur ne peut pas creer de potin si l'utilisateur nest pas connecte 
 #avec la methode before action dans le controleur on peut prevoir les differents cas
 
