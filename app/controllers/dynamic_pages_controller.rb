@@ -23,6 +23,7 @@ class DynamicPagesController < ApplicationController
 
   # Method pour ma page potin
   def potin #recupere lip du potindans lurl voir la route method GET
+    
     #@id_potin = params[:id_potin]
     #@auteur = User.find(gossip.user_id).first_name
   end

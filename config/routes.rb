@@ -25,7 +25,13 @@ Rails.application.routes.draw do
 
 #sur quelle page suis je ? Normalement, je suis sur le page du potin, mais ce n'est pas clair si je suis sur la page du potin ou non.
   resources :show #si lutilisateur est bien connecte et quil a bien editele potin normalement le programme fait changer de page et la page qui saffiche est celle du potin modifie
-
+  resolve('show') { [:show] }
+  resources :gossip
+  resolve('gossip') { [:gossip] }
+  
+ # scope '/admin' do
+ #   resources :gossips, :comments
+ # end
 #je renvoi grace au formulaire un nouveau contenu du formulaire qui est a remplacer parlancien.
 #je peux supprimer lancien potin et rajouter un potin a la place de celui ci
 #/!\ je ne peux pas editer le potin si jesuis lauteur du potin

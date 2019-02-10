@@ -1,4 +1,9 @@
 <% @gossips.each do |infos|%>
-  <%=infos%>
+  <%# link_to infos.title, dynamic_gossip_path(@gossip) %>
+  <%= infos.id %>
+  <% @id_potin = infos.id %>
+  <%= link_to infos.title, gossip_path#(@id_potin) %>
+  <% #link_to infos.title, gossip_path(@gossip) %>
+
 <br>
 <%end%>
